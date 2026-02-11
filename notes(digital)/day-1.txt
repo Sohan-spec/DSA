@@ -1,0 +1,31 @@
+buffer flush-> in cpp, the o/p is written to a temp buffer so that it is easier to print it rather than to print it char by char, so flushing basically means clearing that buffer and printing it on the screen (can be done using endl-> this adds \n and calls std::flush), flush ensures the content of the buffer is written to the destination before the buffer is full.
+
+to include all the libraries at once-> #include<bits/stdc++.h>
+
+
+time complexity:
+-always calculate for worst case scenario
+-avoid including the constant terms, ex:-
+if it is O(4n^3+3n^2+8), and if n=10^5, then 8 is non significant, so we can ignore it
+ex 2:
+int x=2;
+for(int i=1;i<=N;i++){
+cout<<"hello";
+}
+in this complexity: O(3N+1) #as for loop runs n times and has 3 steps each time, 1 for x=2, and x is a constant so it is negligible.
+-avoid the lower values
+ex:
+in O(4n^3+3n^2+8), if N is a huge number even 3n^2 becomes insignificant, so we can ignore that too, time complexity: O(4n^3), we can ignore the constant term too, so finally:- O(n^3) either this or O(4n^3) is also correct
+
+-Big O notation is for worst cases
+-Theta is used for average case
+-Omega is used for best case
+
+
+space complexity:
+auxiliary space is the space that we use additionally to solve a problem
+input space is the space that we use to store the inputs
+input(a) input space
+input(b) input space
+c=a+b auxiliary space
+
