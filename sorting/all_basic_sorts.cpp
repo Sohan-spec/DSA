@@ -10,9 +10,7 @@ void selection_sort(vector<int>arr,int n){
                 min=j;
             }
         }
-        int temp=arr[min];
-        arr[min]=arr[i];
-        arr[i]=temp;
+        swap(arr[min],arr[i]);
     }
     cout<<"Sorted array:\n";
     for(int i=0;i<n;i++)
