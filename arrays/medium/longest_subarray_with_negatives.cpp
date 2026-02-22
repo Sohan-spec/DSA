@@ -25,5 +25,6 @@ int longest_subarray(vector<int>&arr,int target)
 }
 int main()
 {
-    
+    vector<int>arr={-1, 1, 1};
+    cout<<longest_subarray(arr,1);
 }
