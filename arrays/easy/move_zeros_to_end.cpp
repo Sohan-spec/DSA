@@ -18,12 +18,31 @@ void moveZeroes(vector<int> &nums)
      
     }
 }
+void optimal_soln(vector<int>&arr){
+    int j=-1;
+    for(int i=0;i<arr.size();i++){
+        if(arr[i]==0){
+            j=i;
+            break;
+        }
+    }
+    if(j==-1){
+        return;
+    }
+    for(int i=j+1;i<arr.size();i++){
+        if(arr[i]!=0){
+            swap(arr[i],arr[j]);
+            j++;
+        }
+    }
+}
+
 int main()
 {
     vector<int>arr={0, 0, 0, 1, 3, -2};
-    moveZeroes(arr);
+    optimal_soln(arr);
     for(int i=0;i<arr.size();i++)
     {
-        cout<<arr[i]<<endl;
+        cout<<arr[i]<<" ";
     }
 }
