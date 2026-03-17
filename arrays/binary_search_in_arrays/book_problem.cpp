@@ -15,6 +15,7 @@ bool ispossible(vector<int>&arr,int m,int barrier){
     }if(allocatedstu>m)return false;
     return true;
 }
+
 int optimal_soln(vector<int>&arr,int m){
     if(m>arr.size())return -1;
     int low=*max_element(arr.begin(),arr.end());
