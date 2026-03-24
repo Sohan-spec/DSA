@@ -155,12 +155,51 @@ void printreversedll(Node *head){
         temp=temp->prev;
     }
 }
+void brute_reverse_dll(Node*head){
+    if(head==NULL){
+        return;
+    }
+    stack<int>st;
+    Node*temp=head;
+    while(temp!=NULL){
+        st.push(temp->data);
+        temp=temp->next;
+    }
+    temp=head;
+    while(temp!=NULL){
+        temp->data=st.top();
+        st.pop();
+        temp=temp->next;
+    }
+    temp=head;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+}
+Node * optimal_reverse_dll(Node*head){
+    if(head==NULL){
+        return NULL;
+    }
+    Node*current=head;
+    Node*last=NULL;
+    while(current!=NULL){
+        last=current->prev;
+        current->prev=current->next;
+        current->next=last;
+        current=current->prev;
+    }
+    if(last!=NULL){
+        head=last->prev;
+    }
+    return head;
+}
 int main()
 {
     vector<int>arr={1,3,2,4};
     Node*head=NULL;
     head=array_to_ll(arr);
-    printreversedll(head);
+    head=optimal_reverse_dll(head);
     Node*temp=head;
     while(temp!=NULL){
         cout<<temp->data<<" ";
