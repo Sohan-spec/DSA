@@ -17,8 +17,8 @@ struct Node{
     }
 };
 Node*optimal_soln(Node*head,int key){
-    if(head==NULL || head->next==NULL){
-        return NULL;
+    if(head==NULL){
+        return NULL;    
     }
     while(head!=NULL && head->data==key){
         Node*temp=head;
