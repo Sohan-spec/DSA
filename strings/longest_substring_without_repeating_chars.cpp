@@ -16,8 +16,25 @@ int brute_force(string s){ // this takes TC- > O(n^2) and space of O(n)
     }
     return max_len;
 }
+int optimal_soln(string s){
+    int max_len=0;
+    int l=0,r=0;
+    int n=s.length();
+    unordered_map<char,int>mpp;
+    while(r<n){
+        if(mpp.find(s[r])!=mpp.end()){
+            if(mpp[s[r]]>=l){
+                l=mpp[s[r]]+1;
+            }
+        }
+        max_len=max(max_len,r-l+1);
+        mpp[s[r]]=r;
+        r++;
+    }
+    return max_len;
+}
 int main()
 {
     string s="abcabcbb";
-    cout<<brute_force(s);
+    cout<<optimal_soln(s);
 }
