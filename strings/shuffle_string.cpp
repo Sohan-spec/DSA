@@ -10,8 +10,16 @@ string brute_force(string s, vector<int>&indices){
     }
     return s;
 }
+string optimal_soln(string s, vector<int>&indices){
+    int n=s.size();
+    string result="";
+    for(int i=0;i<n;i++){
+        result[indices[i]]=s[i];
+    }
+    return result;
+}
 int main()
 {
     vector<int>indices={4,5,6,7,0,2,1,3};
-    cout<<brute_force("codeleet",indices);
+    cout<<optimal_soln("codeleet",indices);
 }
